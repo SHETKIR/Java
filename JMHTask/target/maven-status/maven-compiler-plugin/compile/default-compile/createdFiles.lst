@@ -1,0 +1,9 @@
+META-INF/CompilerHints
+org/yourcompany/yourproject/benchmarks/jmh_generated/MatrixBenchmark_jmhType_B1.class
+META-INF/BenchmarkList
+org/yourcompany/yourproject/benchmarks/MatrixBenchmark.class
+org/yourcompany/yourproject/benchmarks/jmh_generated/MatrixBenchmark_jmhType.class
+org/yourcompany/yourproject/benchmarks/jmh_generated/MatrixBenchmark_jmhType_B2.class
+org/yourcompany/yourproject/benchmarks/jmh_generated/MatrixBenchmark_testColumnProducts_jmhTest.class
+org/yourcompany/yourproject/benchmarks/jmh_generated/MatrixBenchmark_jmhType_B3.class
+org/yourcompany/yourproject/JMHTask.class
