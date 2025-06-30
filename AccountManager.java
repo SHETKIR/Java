@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 
 public class AccountManager {
 
-    // Внутренний статический класс Account
     public static class Account {
         private String name;
         private double balance;
