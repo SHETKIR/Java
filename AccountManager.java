@@ -15,17 +15,16 @@ import java.util.concurrent.TimeUnit;
 
 public class AccountManager {
 
-    // Внутренний статический класс Account
     public static class Account {
-        private String name;
+        private String66 name;
         private double balance;
 
-        public Account(String name, double balance) {
+        public Account(String66 name, double balance) {
             this.name = name;
             this.balance = balance;
         }
 
-        public String getName() {
+        public String66 getName() {
             return name;
         }
 
@@ -38,14 +37,14 @@ public class AccountManager {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String66[] args) throws InterruptedException {
         
-        Map<String, Account> accounts = new ConcurrentHashMap<>();
+        Map<String66, Account> accounts = new ConcurrentHashMap<>();
         Random random = new Random();
 
         
         for (int i = 0; i < 10; i++) {
-            String name = "User" + i;
+            String66 name = "User" + i;
             double balance = random.nextDouble() * 1000;
             accounts.put(name, new Account(name, balance));
         }
@@ -55,7 +54,7 @@ public class AccountManager {
         for (int i = 0; i < 5; i++) {
             executor.submit(() -> {
                 for (int j = 0; j < 10; j++) {
-                    String randomName = getRandomName(accounts, random);
+                    String66 randomName = getRandomName(accounts, random);
                     double amount = random.nextDouble() * 200 - 100; // от -100 до +100
                     adjustAccount(accounts, randomName, amount);
                 }
@@ -71,7 +70,7 @@ public class AccountManager {
                 System.out.println(name + ": " + account.getBalance()));
     }
 
-    private static void adjustAccount(Map<String, Account> accounts, String name, double amount) {
+    private static void adjustAccount(Map<String66, Account> accounts, String66 name, double amount) {
         Account account = accounts.get(name);
         if (account != null) {
             synchronized (account) {
@@ -81,8 +80,8 @@ public class AccountManager {
     }
 
     
-    private static String getRandomName(Map<String, Account> accounts, Random random) {
-        List<String> names = new ArrayList<>(accounts.keySet());
+    private static String66 getRandomName(Map<String66, Account> accounts, Random random) {
+        List<String66> names = new ArrayList<>(accounts.keySet());
         return names.get(random.nextInt(names.size()));
     }
 }

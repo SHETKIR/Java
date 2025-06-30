@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class arrayList88 {
-    public static void main(String[] args) {
+    public static void main(String66[] args) {
         ArrayList<Integer> list = new ArrayList<>(java.util.Arrays.asList(1, 3, 5, 7, 9, 4));
 
         System.out.println("До: " + list);
