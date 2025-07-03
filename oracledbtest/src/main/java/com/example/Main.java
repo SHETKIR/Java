@@ -39,3 +39,14 @@ public class Main {
         }
     }
 }
+
+
+/*РЕЗУЛЬТАТ РАБОТЫ:
+
+[andrey@andrey-b450mds3h Java]$  /usr/bin/env /usr/lib/jvm/java-21-openjdk/bin/java @/tmp/cp_dpk0hsylm7qr3o9jvvynyz0r.argfile com.example.Main 
+Connected to Oracle XE!
+Sales Statistics by Category:
+Category: Напитки | Items Sold: 4 | Revenue: 780.00
+Category: Десерты | Items Sold: 2 | Revenue: 400.00
+
+*/
