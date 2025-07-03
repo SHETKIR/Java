@@ -5,30 +5,35 @@ import java.sql.*;
 public class Main {
     public static void main(String[] args) {
         String url = "jdbc:oracle:thin:@localhost:1521/XEPDB1";
-        String user = "andrey";
+        String user = "cafe";
         String password = "2845";
 
-        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+                String query = """
+            SELECT 
+                m.CATEGORY,
+                COUNT(oi.ORDER_ITEM_ID) AS TOTAL_ITEMS,
+                SUM(oi.SUBTOTAL) AS TOTAL_REVENUE
+            FROM MENUS m
+            JOIN ORDER_ITEMS oi ON m.MENU_ID = oi.MENU_ID
+            GROUP BY m.CATEGORY
+            """;
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+
             System.out.println("Connected to Oracle XE!");
+            System.out.println("Sales Statistics by Category:");
 
-            // Создание таблицы с правильной структурой
-            Statement stmt = conn.createStatement();
-            stmt.execute("""
-                CREATE TABLE test_table1 (
-                    id          NUMBER PRIMARY KEY,
-                    name        VARCHAR2(50),
-                    created_at  DATE
-                )
-            """);
-
-            // Вставка данных
-            stmt.executeUpdate("INSERT INTO test_table1 (id, name, created_at) VALUES (1, 'Test', SYSDATE)");
-
-            // Выборка данных
-            ResultSet rs = stmt.executeQuery("SELECT * FROM test_table1");
             while (rs.next()) {
-                System.out.println("ID: " + rs.getInt("id") + ", Name: " + rs.getString("name"));
+                String category = rs.getString("CATEGORY");
+                int totalItems = rs.getInt("TOTAL_ITEMS");
+                double totalRevenue = rs.getDouble("TOTAL_REVENUE");
+
+                System.out.printf("Category: %s | Items Sold: %d | Revenue: %.2f%n",
+                        category, totalItems, totalRevenue);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
