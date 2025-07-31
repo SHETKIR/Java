@@ -1,13 +1,13 @@
-package top.academy.springmvc;
+package com.example.OrdersEditor;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringMvcApplicationTests {
+class OrdersEditorApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
